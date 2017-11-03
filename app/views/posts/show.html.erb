@@ -1,0 +1,21 @@
+<style>
+.com { 
+    text-align: center;
+    padding: 20px;
+}
+</style>
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+<hr>
+<%= form_for :postcomment, url: posts_path do |f| %>
+<div class="com">
+	<p><%= f.label "Comment" %></p>
+	<%= f.text_area :text, cols: 10, rows: 5 %><br />
+ 
+
+ <p><%= f.submit "Send" %></p>
+ </div>
+<%end%>
+
+	
