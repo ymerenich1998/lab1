@@ -4,5 +4,5 @@ class Post < ApplicationRecord
 	validates :title, uniqueness: true
 	validates :title, presence: true
 	belongs_to :user
-	 has_many :comments
+	 has_many :postcomments
 end
