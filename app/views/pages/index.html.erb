@@ -6,7 +6,8 @@
 <hr>
 	<h1><%= link_to post.title, post_path(post.id) %></h1>
 	<p><%= post.body %></p>
-	<p>Author: <%= post.user.nickname %> | 
+	<p><%= image_tag post.user.avatar.url(:thumb), width: 30, heigth: 30 %>
+	Author: <%= post.user.nickname %> | 
 	 Create at: <%= post.created_at %></p>
 	<% if current_user != nil and current_user.id == post.user_id %>
 	<p>

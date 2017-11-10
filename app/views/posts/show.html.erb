@@ -6,9 +6,15 @@
 </style>
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
-
 <hr>
-<%= form_for :postcomment, url: posts_path do |f| %>
+<% @comments.each do |comment|%>
+<%= image_tag comment.user.avatar.url(:thumb), width: 30, heigth: 30 %>
+<p> User <b><%= comment.user.nickname %></b> write</p>
+<%= comment.text %>
+<hr>
+<% end %>
+
+<%= form_for :postcomment, url: post_postcomments_path(post_id: @post.id) do |f| %>
 <div class="com">
 	<p><%= f.label "Comment" %></p>
 	<%= f.text_area :text, cols: 10, rows: 5 %><br />

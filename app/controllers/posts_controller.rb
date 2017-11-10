@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end 
 
   def show
+    @comments = Postcomment.where(post_id: @post.id)
   end
 
   def create
