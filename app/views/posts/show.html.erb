@@ -3,21 +3,47 @@
     text-align: center;
     padding: 20px;
 }
+
+.bord{
+	background: #FFF8DC;
+	border: 1px;
+	border-style: solid;
+	border-color: #DCDCDC;
+	border-radius: 20px;
+	margin-bottom: 5px;
+	padding: 20px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.ram
+{
+	margin-right: 15px;
+	margin-left: 15px;
+}
 </style>
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
 <hr>
+
 <% @comments.each do |comment|%>
-<%= image_tag comment.user.avatar.url(:thumb), width: 30, heigth: 30 %>
-<p> User <b><%= comment.user.nickname %></b> write</p>
-<%= comment.text %>
-<hr>
+<div class="ram">
+<p><%= image_tag comment.user.avatar.url(:thumb), width: 30, heigth: 30 %>
+ User <b><%= comment.user.nickname %></b> write:</p>
+ <div class = "bord">
+<i><%= comment.text %></i>
+</div>
+</div>
 <% end %>
 
+	
 <%= form_for :postcomment, url: post_postcomments_path(post_id: @post.id) do |f| %>
+<% if flash[:notice] %>
+	<div class="notice"><% flash[:notice] %></div>
+	<% end %>
 <div class="com">
 	<p><%= f.label "Comment" %></p>
-	<%= f.text_area :text, cols: 10, rows: 5 %><br />
+	<%= f.text_area :text,  class: "content-field", placeholder: "Add a comment"%><br />
  
 
  <p><%= f.submit "Send" %></p>
