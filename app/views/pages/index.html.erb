@@ -25,21 +25,19 @@
     
 }
 
-.index-content .row{
-    margin-top:20px;
-}
+
 .index-content a{
     color: black;
     text-decoration: none;
 }
 .index-content .card{
     background-color: #FFFFFF;
+    margin-bottom: 20px;
     padding:0px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius:20px;
     box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
-
 }
 
 .index-content .card h4{
@@ -50,7 +48,11 @@
 .index-content .card p{
     margin:15px;
     opacity: 0.65;
-}
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 
 .index-content .card #ed{
 	text-align: right;
@@ -66,9 +68,9 @@
 		<% @posts.each do |post| %>
 			<div class="col-lg-4">
            		<div class="card">
-           		<p id="ed"><% if current_user != nil and current_user.id == post.user_id %>
-					<%= link_to "Edit",  edit_post_path(post.id) %> or
-					<%= link_to "Delete", post_path(post.id), data: {confirm: 'Rili deleted your post?'}, method: :delete %></p></p>
+	           		<p id="ed"><% if current_user != nil and current_user.id == post.user_id %>
+						<%= link_to "Edit",  edit_post_path(post.id) %> or
+						<%= link_to "Delete", post_path(post.id), data: {confirm: 'Rili deleted your post?'}, method: :delete %></p></p>
 					<%end%>
 					<h4><%= link_to post.title, post_path(post.id) %></h4>
 					<p><i><%= post.body %></i></p>
