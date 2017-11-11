@@ -1,13 +1,23 @@
+<style>
+	.ram
+{
+	margin-right: 15px;
+	margin-left: 15px;
+}
 
-<%= link_to "Create new post", new_post_path, class: "btn btn-default" %>
 
-<div>
+</style>
+
+<center><%= link_to "Create new post", new_post_path, class: "btn btn-default" %></center>
+
+<div class="ram">
 <% @posts.each do |post| %>
 <hr>
 	<h1><%= link_to post.title, post_path(post.id) %></h1>
 	<p><%= post.body %></p>
 	<p><%= image_tag post.user.avatar.url(:thumb), width: 30, heigth: 30 %>
-	Author: <%= post.user.nickname %> | 
+	Author: <%= post.user.nickname %> |
+	<span class="glyphicon glyphicon-time"></span> 
 	 Create at: <%= post.created_at %></p>
 	<% if current_user != nil and current_user.id == post.user_id %>
 	<p>
