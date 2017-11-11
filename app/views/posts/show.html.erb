@@ -21,6 +21,11 @@
 	margin-right: 15px;
 	margin-left: 15px;
 }
+
+.time{
+	text-align: right;
+	opacity: 0.65;
+}
 </style>
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
@@ -33,6 +38,8 @@
  <div class = "bord">
 <i><%= comment.text %></i>
 </div>
+<div class="time"><span class="glyphicon glyphicon-time"></span>
+<small><%= comment.created_at %></small></div>
 </div>
 <% end %>
 
