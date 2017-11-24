@@ -26,10 +26,17 @@
 	text-align: right;
 	opacity: 0.65;
 }
+
+.post{
+	margin-left: 20px;
+	margin-right: 20px;
+}
 </style>
+<div class="post">
 <h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
+<p><%= sanitize @post.body %></p>
 <hr>
+</div>
 
 <% @comments.each do |comment|%>
 <div class="ram">

@@ -81,7 +81,7 @@
 					</div>	
 
 					<h4><%= link_to post.title, post_path(post.id) %></h4>
-					<p><i><%= post.body %></i></p>
+					<p><i><%= sanitize post.body %></i></p>
 					<div id="pd"><%= image_tag post.user.avatar.url(:thumb), width: 30, heigth: 30 %>
 					Author: <%= post.user.nickname %> |
 					<span class="glyphicon glyphicon-time"></span> 
