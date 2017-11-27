@@ -1,0 +1,8 @@
+<center><%= form_for @photo, url: photos_path do |f| %>
+	<% if @photo.errors.any? %>
+	 <% @pohoto.errors.full_messages.each do |msg| %>
+	 	<li><%=msg%></li>
+	   <%end%>
+	 <%end%>
+	<%= render 'photos/form', f:f%>
+<%end%></center>

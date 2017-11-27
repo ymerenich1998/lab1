@@ -41,6 +41,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'client_side_validations'
 #editor
 gem 'tinymce-rails'
+#image
+gem 'carrierwave', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

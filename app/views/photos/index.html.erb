@@ -1,0 +1,9 @@
+<center><%= link_to "New Photo", new_photo_path, class: "btn btn-default" %></center>
+
+<% if @photos == [] %>
+	<center><h1>Photo ninchen</h1></center>
+	<% else %>
+		<% @photos.each do |photo| %>
+		<%= photo.name %>
+	<% end %>
+<% end %>	

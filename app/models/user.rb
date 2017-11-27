@@ -3,10 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
  has_many :posts
  has_many :postcomments
- validates :nickname, presence: true
- validates :nickname, uniqueness: true
+ has_many :photos
+
+ validates :nickname, :email, :password_confirmation, :password, presence: true
+ validates :nickname, :email, uniqueness: true
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/default.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
