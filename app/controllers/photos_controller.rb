@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :set_photo, only: [:edit,:update,:destroy]
   def index
     @photos = Photo.all
     @like = {}
@@ -51,5 +51,8 @@ private
   def photo_params
     params.require(:photo).permit(:user_id, :category_id, :name, :photo)
   end
-
+  
+  def set_photo
+      @photo = Photo.find(params[:id])
+    end
 end

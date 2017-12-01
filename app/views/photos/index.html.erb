@@ -23,6 +23,10 @@ a{
 		<i class="glyphicon glyphicon-heart-empty"></i>
 		<% end %>
 		(<%= @like[photo.id] %>)</p>
+		<% if current_user != nil and current_user.id == photo.user_id %>
+						<%= link_to "Edit",  edit_photo_path(photo.id) %> or
+						<%= link_to "Delete", photo_path(photo.id), data: {confirm: 'Rili deleted your post?'}, method: :delete %>
+					<%end%>
 		<hr>
 		</div>
 	<% end %>
