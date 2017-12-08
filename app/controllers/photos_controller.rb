@@ -37,14 +37,18 @@ class PhotosController < ApplicationController
   def vote
     @photo = Photo.find(params[:id])
     @vote = Vote.where(user_id: current_user.id, photo_id: @photo.id).first
-    if @vote == nil or @vote.like == 0
-      @like = 1
-      Vote.create(user_id: current_user.id, photo_id: @photo.id, like: @like)
+    if @vote == nil 
+        @like = 1
+        Vote.create(user_id: current_user.id, photo_id: @photo.id, like: @like)
     else
-      @vote.update(like: @vote.like-1)
+      if @vote.like == 0
+        @vote.update(like: @vote.like+1)
+        else
+            @vote.update(like: @vote.like-1)
         end
+    end
     redirect_to photos_path
-end
+  end
 
 private
 
