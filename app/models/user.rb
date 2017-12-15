@@ -7,6 +7,7 @@ class User < ApplicationRecord
  has_many :posts
  has_many :postcomments
  has_many :photos
+ has_many :images
  has_many :votes
 
  validates :nickname, :email, :password_confirmation, :password, presence: true
